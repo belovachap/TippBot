@@ -7,6 +7,7 @@ import discord
 import asyncio
 import logging.handlers
 import wallet
+import db
 import util
 
 from conf import (BOT_VERSION,
