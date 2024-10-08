@@ -42,10 +42,12 @@ def create_or_fetch_user(user_id, user_name):
         return user
 
 
-def get_wallet_balance():
+def get_audit_info():
     rpc_connection = connect()
-    return rpc_connection.getbalance()
-
+    result = rpc_connection.getnetworkinfo()
+    result['blockcount'] = rpc_connection.getblockcount()
+    result['balance'] = rpc_connection.getbalance()
+    return result
 
 def get_balance(user_id: int) -> float:
     logger.info('getting balance for user %s', user_id)
