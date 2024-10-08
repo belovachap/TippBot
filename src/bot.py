@@ -201,7 +201,7 @@ bot_features = setup_bot()
 
 
 def get_qr_url(text):
-    return 'https://chart.googleapis.com/chart?cht=qr&chl=%s&chs=180x180&choe=UTF-8&chld=L|2' % text
+    return 'https://api.qrserver.com/v1/create-qr-code/?size=300x300&qzone=5&data=%s' % text
 
 
 def find_user_id(input_text: str) -> int:
