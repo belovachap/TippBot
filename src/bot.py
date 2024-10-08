@@ -400,7 +400,7 @@ async def on_message(message):
     if message.content.startswith('$audit'):
         audit_info = wallet.get_audit_info()
         total_user_balance = db.get_total_user_balance()
-        post_response(message, feat.response_templates["success"] % (audit_info['balance'], total_user_balance, audit_info['blockcount'], audit_info['fullversion']))
+        post_response(message, feat.response_templates["success"], audit_info['balance'], total_user_balance, audit_info['blockcount'], audit_info['fullversion'])
 
 
 client.run(BOT_TOKEN)
