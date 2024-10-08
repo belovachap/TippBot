@@ -22,7 +22,7 @@ logging.basicConfig(filename='bot.log', level=logging.INFO)
 logger = logging.getLogger("bot-main")
 
 logger.info("started.")
-intents = discord.Intents(messages=True, message_content=True)
+intents = discord.Intents(messages=True, message_content=True, members=True)
 client = discord.Client(intents=intents)
 
 BotFeature = collections.namedtuple('BotFeature', ['command', 'command_keywords', 'response_templates'])
