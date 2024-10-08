@@ -22,7 +22,7 @@ logging.basicConfig(filename='bot.log', level=logging.INFO)
 logger = logging.getLogger("bot-main")
 
 logger.info("started.")
-intents = discord.Intents(messages=True, message_content=True, members=True)
+intents = discord.Intents(messages=True, message_content=True)
 client = discord.Client(intents=intents)
 
 BotFeature = collections.namedtuple('BotFeature', ['command', 'command_keywords', 'response_templates'])
@@ -235,7 +235,7 @@ async def react_to_message(message, level):
 async def post_dm(user_id, text_list, *args):
     text = random.choice(text_list) % tuple(args)
     logger.info("sending dm: '%s' to user: %s", text, user_id)
-    user = client.get_user(user_id)
+    user = await client.fetch_user(user_id)
     await user.send(text)
 
 
