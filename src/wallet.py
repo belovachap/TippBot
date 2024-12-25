@@ -66,7 +66,8 @@ def make_transaction_to_address(user, amount, address):
 
     rpc_connection = connect()
 
-    txid = rpc_connection.sendtoaddress(address, round(amount, 6), "tippbot withdraw")
+    # https://developer.bitcoin.org/reference/rpc/sendtoaddress.html
+    txid = rpc_connection.sendtoaddress(address, round(amount, 6), "tippbot withdraw", "", True)
 
     logger.info('creating withdraw transaction (user: %s, amount: %.3f, address: %s, txid: %s)', user.user_id,
                 amount, address, txid)
